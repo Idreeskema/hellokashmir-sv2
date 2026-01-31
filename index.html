@@ -200,21 +200,99 @@
         }
 
         .cta-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
             color: white;
             text-decoration: none;
             border-radius: 50px;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:active {
+            transform: translateY(-2px) scale(0.98);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        .cta-button .icon {
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover .icon {
+            transform: scale(1.1);
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3) !important;
+        }
+
+        .whatsapp-btn:hover {
+            box-shadow: 0 20px 40px rgba(37, 211, 102, 0.4) !important;
+        }
+
+        /* Call Button */
+        .call-btn {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%) !important;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3) !important;
+        }
+
+        .call-btn:hover {
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.4) !important;
+        }
+
+        /* Email Button */
+        .email-btn {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%) !important;
+            box-shadow: 0 10px 30px rgba(116, 185, 255, 0.3) !important;
+        }
+
+        .email-btn:hover {
+            box-shadow: 0 20px 40px rgba(116, 185, 255, 0.4) !important;
+        }
+
+        /* Secondary CTA Button Style */
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            box-shadow: none;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         /* About Section */
@@ -502,21 +580,58 @@
         }
 
         .submit-btn {
-            background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
             color: white;
-            padding: 15px 40px;
+            padding: 18px 45px;
             border: none;
             border-radius: 50px;
             font-size: 1.2rem;
-            font-weight: bold;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
         }
 
         .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:active {
+            transform: translateY(-2px) scale(0.98);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .submit-btn .btn-icon {
+            font-size: 1.3rem;
         }
 
         /* Destinations Section */
@@ -835,6 +950,11 @@
             flex-wrap: wrap;
         }
 
+        .cta-buttons .cta-button {
+            min-width: 160px;
+            padding: 18px 28px;
+        }
+
         .whatsapp-btn {
             background: linear-gradient(45deg, #25D366, #128C7E) !important;
         }
@@ -1089,7 +1209,10 @@
             <h1>Paradise Awaits in Kashmir</h1>
             <p>Discover the breathtaking beauty of Kashmir with our expertly crafted holiday packages. From serene lakes
                 to snow-capped mountains, experience heaven on earth.</p>
-            <a href="#booking" class="cta-button">Start Your Journey</a>
+            <a href="#booking" class="cta-button">
+                <span class="icon">✈️</span>
+                Start Your Journey
+            </a>
         </div>
     </section>
 
@@ -1317,7 +1440,10 @@
                     </div>
                 </div>
 
-                <button type="submit" class="submit-btn">Book Your Holiday</button>
+                <button type="submit" class="submit-btn">
+                    <span class="btn-icon">✓</span>
+                    Book Your Holiday
+                </button>
             </form>
         </div>
     </section>
@@ -1511,13 +1637,16 @@
                         <p>Contact us directly for instant assistance and personalized travel planning</p>
                         <div class="cta-buttons">
                             <a href="https://wa.me/918491813135" class="cta-button whatsapp-btn">
-                                💬 WhatsApp Us
+                                <span class="icon">💬</span>
+                                WhatsApp Us
                             </a>
                             <a href="tel:+918491813135" class="cta-button call-btn">
-                                📞 Call Now
+                                <span class="icon">📞</span>
+                                Call Now
                             </a>
                             <a href="mailto:info@hellokashmir.com" class="cta-button email-btn">
-                                ✉️ Email Us
+                                <span class="icon">✉️</span>
+                                Email Us
                             </a>
                         </div>
                     </div>
